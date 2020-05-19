@@ -12,6 +12,8 @@ const weatherForm = document.querySelector(`form`);
 const search = document.querySelector(`input`);
 let alert = document.getElementById(`alert`);
 let message = document.getElementById(`message`);
+let userlocation = document.getElementById(`location`);
+let forecast = document.getElementById(`forecast`);
 
 weatherForm.addEventListener(`submit`, (e) => {
   e.preventDefault();
@@ -28,6 +30,8 @@ weatherForm.addEventListener(`submit`, (e) => {
         alert.classList.add("alert-success");
         alert.style.display = `block`;
         message.innerHTML = `success`;
+        userlocation.innerHTML = `Country: ${data.location}`;
+        forecast.innerHTML = `Prediction: The temperature us currently ${data.forecast.temperature} , but it feels like ${data.forecast.feelslike}`;
         console.log(`location`, data.location);
         console.log(`forecast`, data.forecast);
       }
