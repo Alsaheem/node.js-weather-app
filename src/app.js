@@ -11,6 +11,7 @@ console.log(__filename);
 
 // initiate express
 const app = express();
+const port = process.env.PORT || 5000
 
 // Define paths  for espress views
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -109,6 +110,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(5000, () => {
-  console.log(`i am an indaboski, I run servers`);
+app.listen(port, () => {
+  console.log(`i am an indaboski, I run servers on ${port}`);
 });
