@@ -1,0 +1,35 @@
+h1 {
+  color: red;
+}
+
+.alsaheem-img {
+  width: 200px;
+}
+
+.container {
+  text-align: center;
+}
+
+header {
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  background-color: lightblue;
+  padding: 20px;
+  color: #2f00ff;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+li:hover {
+  background-color: black;
+  padding: 5px;
+}
+
+.logo {
+  height: 50px;
+}
+
+li {
+  margin-top: 12px;
+}
