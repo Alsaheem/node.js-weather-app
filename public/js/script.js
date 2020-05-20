@@ -14,9 +14,13 @@ let alert = document.getElementById(`alert`);
 let message = document.getElementById(`message`);
 let userlocation = document.getElementById(`location`);
 let forecast = document.getElementById(`forecast`);
+let button = document.getElementById(`search`);
+let loader = document.getElementById(`loader`);
 
 weatherForm.addEventListener(`submit`, (e) => {
   e.preventDefault();
+  button.disabled = true;
+  loader.style.display = `block`;
   const location = search.value;
   fetch(`/weather?address=${location}`).then((response) =>
     response.json().then((data) => {
@@ -25,6 +29,8 @@ weatherForm.addEventListener(`submit`, (e) => {
         alert.classList.add("alert-danger");
         alert.style.display = `block`;
         message.innerHTML = data.error;
+        button.disabled = false;
+        loader.style.display = `none`;
       } else {
         alert.classList.remove("alert-danger");
         alert.classList.add("alert-success");
@@ -32,6 +38,8 @@ weatherForm.addEventListener(`submit`, (e) => {
         message.innerHTML = `success`;
         userlocation.innerHTML = `Country: ${data.location}`;
         forecast.innerHTML = `Prediction: The temperature us currently ${data.forecast.temperature} , but it feels like ${data.forecast.feelslike}`;
+        button.disabled = false;
+        loader.style.display = `none`;
         console.log(`location`, data.location);
         console.log(`forecast`, data.forecast);
       }

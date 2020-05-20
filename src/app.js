@@ -32,7 +32,7 @@ app.use(express.static(publicDirectory));
 app.get("", (req, res) => {
   res.render("index", {
     title: "Weather-Home",
-    heading: "Weather",
+    heading: "What is My Weather Today....",
     name: "Alsaheem",
   });
 });
